@@ -1,0 +1,267 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Data_Extraction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="imailTransactionItem" Type="InArgument(snm:MailMessage)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="idictAssets" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="ijobjRegex" Type="InArgument(njl:JObject)" />
+    <x:Property Name="iodtBookingDetails" Type="InOutArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1333.7142857142858,2180.5714285714284</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Data_Extraction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Extract data from each attached pdf and excel files in the received mail and append them to odt" DisplayName="20.a Data Extraction" sap:VirtualizedContainerService.HintSize="592.5714285714286,2115.4285714285716" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="arrstrAttachments" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictMatchedFields" />
+      <Variable x:TypeArguments="x:String" Name="strDataTable" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolTempFolderExists" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ClearDataTable DataTable="[iodtBookingDetails]" DisplayName="Clear Data Table - iodtBookingDetails" sap:VirtualizedContainerService.HintSize="530.8571428571429,82.28571428571429" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+    <ui:FolderExistsX DisplayName="Folder Exists - 'temp' Folder" Exists="[boolTempFolderExists]" sap:VirtualizedContainerService.HintSize="530.8571428571429,137.71428571428572" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[idictAssets(&quot;strProjectWorkingDirectory&quot;).ToString + &quot;\Input\temp\&quot;]" />
+    <If Condition="[boolTempFolderExists]" DisplayName="If - 'temp' Folder Exists" sap:VirtualizedContainerService.HintSize="530.8571428571429,321.14285714285717" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="375.42857142857144,169.14285714285714" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:DeleteFolderX DisplayName="Delete Folder - 'temp' Folder" sap:VirtualizedContainerService.HintSize="334.2857142857143,82.28571428571429" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[idictAssets(&quot;strProjectWorkingDirectory&quot;).ToString + &quot;\Input\temp\&quot;]" Recursive="True" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9" />
+      </If.Else>
+    </If>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim match As System.Text.RegularExpressions.Match&#xD;&#xA;Dim strVariable As System.String&#xD;&#xA;odictRegexData= New Dictionary(Of String, String)&#xD;&#xA;For Each varName As Newtonsoft.Json.Linq.JProperty In ijobjRegex.Item(istrBookingSource)&#xD;&#xA;&#x9;odictRegexData.Add(&quot;strMailSubject&quot;, imailMessage.Subject.Trim)&#xD;&#xA;&#x9;Dim varObjects As Newtonsoft.Json.Linq.JToken = varName.Value&#xD;&#xA;&#x9;For Each i As Newtonsoft.Json.Linq.JProperty In varObjects&#xD;&#xA;&#x9;&#x9;Dim varRegexList As Newtonsoft.Json.Linq.JToken = i.Value&#xD;&#xA;&#x9;&#x9;Dim intCount As Int32=1&#xD;&#xA;&#x9;&#x9;For Each  regex As Newtonsoft.Json.Linq.JToken In varRegexList.Children()&#xD;&#xA;&#x9;&#x9;&#x9;If Not varName.Name.ToString.Equals(&quot;dtDetailedInvoice&quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Dim regexvar As New System.Text.RegularExpressions.Regex(regex.ToString)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;match = regexvar.Match(imailMessage.Body)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;If match.Success Then&#xD;&#xA;&#x9;&#x9;&#x9;   &#x9;&#x9;strVariable = match.groups(&quot;group&quot;).Value.ToString.Trim&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;odictRegexData.Add(varName.Name.ToString,strVariable)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Exit For&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;If intCount=varRegexList.Count&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;strVariable = String.Empty&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;odictRegexData.Add(varName.Name.ToString, strVariable)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Exit For&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;&#x9;End If&#xD;&#xA;&#x9;&#x9;intCount = intCount + 1&#xD;&#xA;       Next&#xD;&#xA;&#x9;Next&#xD;&#xA;Next&#xD;&#xA;odictRegexData(&quot;strMailTime&quot;) = DateTime.Parse(odictRegexData(&quot;strMailTime&quot;), System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd-MM-yyyy&quot;) + &quot; &quot; + CDate(imailMessage.Headers(&quot;Date&quot;)).ToString(&quot;HH:mm&quot;)&#xD;&#xA;odictRegexData(&quot;strMailSubject&quot;) = If(odictRegexData(&quot;strMailSubject&quot;).Contains(&quot;Fwd: &quot;), odictRegexData(&quot;strMailSubject&quot;).Replace(&quot;Fwd: &quot;, String.Empty), odictRegexData(&quot;strMailSubject&quot;))" DisplayName="Invoke Code - Extract Mail Subject And Time" sap:VirtualizedContainerService.HintSize="530.8571428571429,165.14285714285714" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="odictRegexData">[dictMatchedFields]</OutArgument>
+        <InArgument x:TypeArguments="njl:JObject" x:Key="ijobjRegex">[ijobjRegex]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="istrBookingSource">MailBody</InArgument>
+        <InArgument x:TypeArguments="snm:MailMessage" x:Key="imailMessage">[imailTransactionItem]</InArgument>
+      </ui:InvokeCode.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeCode>
+    <ui:SaveMailAttachments Attachments="[arrstrAttachments]" DisplayName="Save Attachments - imailTransactionItem" ExcludeInlineAttachments="False" Filter=".*(.pdf|.xlsx)" FolderPath="[idictAssets(&quot;strProjectWorkingDirectory&quot;).ToString + &quot;\Input\temp\&quot;]" sap:VirtualizedContainerService.HintSize="530.8571428571429,93.71428571428571" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[imailTransactionItem]" OverwriteExisting="False">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:SaveMailAttachments>
+    <ui:ForEachFileX DisplayName="For Each File in 'temp' Folder" Folder="[idictAssets(&quot;strProjectWorkingDirectory&quot;).ToString + &quot;\Input\temp\&quot;]" sap:VirtualizedContainerService.HintSize="530.8571428571429,974.2857142857143" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+      <ui:ForEachFileX.Body>
+        <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+          <ActivityAction.Argument1>
+            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="finfoCurrentAttachment" />
+          </ActivityAction.Argument1>
+          <ActivityAction.Argument2>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+          </ActivityAction.Argument2>
+          <Switch x:TypeArguments="x:String" DisplayName="Switch - PDF Or Xlsx" Expression="[finfoCurrentAttachment.Extension]" sap:VirtualizedContainerService.HintSize="496.6666666666667,710.6666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+            <Switch.Default>
+              <ui:LogMessage DisplayName="Log Message - Unexpected Case" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;Something unexpected happened...&quot;]" />
+            </Switch.Default>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence x:Key=".pdf" DisplayName="Extract PDF Content" sap:VirtualizedContainerService.HintSize="450,498" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="strPdfText" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadPDFText DisplayName="Read Attached PDF Text" FileName="[finfoCurrentAttachment.FullName]" sap:VirtualizedContainerService.HintSize="388,60" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" PreserveFormatting="True" Range="All" Text="[strPdfText]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ReadPDFText>
+              <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim match As System.Text.RegularExpressions.Match&#xA;Dim strVariable As System.String&#xA;For Each varName As Newtonsoft.Json.Linq.JProperty In ijobjRegex.Item(istrBookingSource)&#xA;&#x9;Dim varObjects As Newtonsoft.Json.Linq.JToken = varName.Value&#xA;&#x9;For Each i As Newtonsoft.Json.Linq.JProperty In varObjects&#xA;&#x9;&#x9;Dim varRegexList As Newtonsoft.Json.Linq.JToken = i.Value&#xA;&#x9;&#x9;Dim intCount As Int32=1&#xA;&#x9;&#x9;For Each  regex As Newtonsoft.Json.Linq.JToken In varRegexList.Children()&#xA;&#x9;&#x9;&#x9;If varName.Name.ToString.Equals(&quot;strHotelName&quot;) OrElse varName.Name.ToString.Equals(&quot;strDateOfArrival&quot;) OrElse varName.Name.ToString.Equals(&quot;strBookingReference&quot;) Then&#xA;&#x9;&#x9;&#x9;&#x9;Dim regexvar As New System.Text.RegularExpressions.Regex(regex.ToString)&#xA;&#x9;&#x9;&#x9;&#x9;match = regexvar.Match(istrPdfText)&#xA;&#x9;&#x9;&#x9;&#x9;If match.Success Then&#xA;&#x9;&#x9;&#x9;   &#x9;&#x9;strVariable = match.groups(&quot;group&quot;).Value.ToString.Trim&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;idictMatchedFields.Add(varName.Name.ToString,strVariable)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Exit For&#xA;&#x9;&#x9;&#x9;&#x9;Else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;If intCount=varRegexList.Count Then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;strVariable = String.Empty&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;idictMatchedFields.Add(varName.Name.ToString, strVariable)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Exit For&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#x9;intCount = intCount + 1&#xA;       Next&#xA;&#x9;Next&#xA;Next&#xA;For Each strReservation As System.String In istrPdfText.Split({&quot;Commission:&quot;}, StringSplitOptions.None).Take(istrPdfText.Split({&quot;Commission:&quot;}, StringSplitOptions.None).Count - 1)&#xA;&#x9;Dim dictReservationData As System.Collections.Generic.Dictionary(Of String, String) = New Dictionary(Of String,String)&#xA;&#x9;For Each varName As Newtonsoft.Json.Linq.JProperty In ijobjRegex.Item(istrBookingSource)&#xA;&#x9;&#x9;Dim varObjects As Newtonsoft.Json.Linq.JToken = varName.Value&#xA;&#x9;&#x9;For Each i As Newtonsoft.Json.Linq.JProperty In varObjects&#xA;&#x9;&#x9;&#x9;Dim varRegexList As Newtonsoft.Json.Linq.JToken = i.Value&#xA;&#x9;&#x9;&#x9;Dim intCount As Int32=1&#xA;&#x9;&#x9;&#x9;For Each  regex As Newtonsoft.Json.Linq.JToken In varRegexList.Children()&#xA;&#x9;&#x9;&#x9;&#x9;If Not varName.Name.ToString.Equals(&quot;strHotelName&quot;) OrElse Not varName.Name.ToString.Equals(&quot;strDateOfArrival&quot;) OrElse Not varName.Name.ToString.Equals(&quot;strBookingReference&quot;) Then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Dim regexvar As New System.Text.RegularExpressions.Regex(regex.ToString)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;match = regexvar.Match(strReservation)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;If match.Success Then&#xA;&#x9;&#x9;&#x9;&#x9;   &#x9;&#x9;strVariable = match.groups(&quot;group&quot;).Value.ToString.Trim&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;dictReservationData.Add(varName.Name.ToString,strVariable)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Exit For&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;If intCount=varRegexList.Count Then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;strVariable = String.Empty&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;dictReservationData.Add(varName.Name.ToString, strVariable)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Exit For&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#x9;&#x9;End If&#xA;&#x9;&#x9;&#x9;&#x9;intCount = intCount + 1&#xA;&#x9;       Next&#xA;&#x9;&#x9;Next&#xA;&#x9;Next&#xA;&#x9;Dim strNights As System.String = &quot;1&quot;&#xA;&#x9;Dim strCheckInDate As System.String&#xA;&#x9;Dim strCheckOutDate As System.String&#xA;&#x9;Try&#xA;&#x9;&#x9;Dim dtimeCheckInDate As System.DateTime = DateTime.Parse(idictMatchedFields(&quot;strDateOfArrival&quot;), System.Globalization.CultureInfo.InvariantCulture)&#xA;&#x9;&#x9;strCheckInDate = dtimeCheckInDate.ToString(&quot;dd-MM-yyyy&quot;)&#xA;&#x9;Catch ex As System.Exception&#xA;&#x9;&#x9;strCheckInDate = &quot;Invalid Date&quot;&#xA;&#x9;End Try&#xA;&#x9;Try&#xA;&#x9;&#x9;strCheckOutDate = DateTime.ParseExact(strCheckInDate, &quot;dd-MM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString(&quot;dd-MM-yyyy&quot;)&#xA;&#x9;Catch ex As System.Exception&#xA;&#x9;&#x9;strCheckOutDate = &quot;Error: Invalid Check-In Date&quot;&#xA;&#x9;End Try&#xA;&#x9;iodtBookingDetails.rows.Add(idictMatchedFields(&quot;strMailSubject&quot;) + &quot; &quot; + idictMatchedFields(&quot;strMailTime&quot;), idictMatchedFields(&quot;strHotelName&quot;), idictMatchedFields(&quot;strBookingReference&quot;), dictReservationData(&quot;strGuestName&quot;), dictReservationData(&quot;strMealPlan&quot;), dictReservationData(&quot;strHotelRef&quot;), strNights, strCheckInDate, strCheckOutDate, dictReservationData(&quot;strReasonForTravel&quot;))&#xA;Next&#x9;" DisplayName="Invoke Code - Extract PDF Fields" sap:VirtualizedContainerService.HintSize="388,165.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+                <ui:InvokeCode.Arguments>
+                  <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="idictMatchedFields">[dictMatchedFields]</InOutArgument>
+                  <InArgument x:TypeArguments="njl:JObject" x:Key="ijobjRegex">[ijobjRegex]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="istrBookingSource">PDF</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="istrPdfText">[strPdfText]</InArgument>
+                  <InOutArgument x:TypeArguments="sd:DataTable" x:Key="iodtBookingDetails">[iodtBookingDetails]</InOutArgument>
+                </ui:InvokeCode.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeCode>
+              <ui:DeleteFileX DisplayName="Delete File - Attached PDF" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="[finfoCurrentAttachment.FullName]" />
+            </Sequence>
+            <Sequence x:Key=".xlsx" DisplayName="Extract Xlsx Content" sap:VirtualizedContainerService.HintSize="546,779.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="dtExcelData" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtExcelData]" DisplayName="Read Range - Attached Xlsx" sap:VirtualizedContainerService.HintSize="484,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="[finfoCurrentAttachment.FullName]" />
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtExcelData]" DisplayName="For Each Row in Data Table - dtExcelData" sap:VirtualizedContainerService.HintSize="484,418.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,302" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{dictMatchedFields(&quot;strMailSubject&quot;).ToString + &quot; &quot; + dictMatchedFields(&quot;strMailTime&quot;).ToString, CurrentRow(0).ToString, CurrentRow(1).ToString, CurrentRow(2).ToString, CurrentRow(3).ToString, CurrentRow(4).ToString, CurrentRow(5).ToString, Datetime.Parse(CurrentRow(6).ToString, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd-MM-yyyy&quot;), Datetime.Parse(CurrentRow(6).ToString, System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString(&quot;dd-MM-yyyy&quot;), CurrentRow(8).ToString}]" DataTable="[iodtBookingDetails]" DisplayName="Add Data Row - To dtBookingDetails" sap:VirtualizedContainerService.HintSize="388,191.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+              <ui:DeleteFileX DisplayName="Delete File - Attached Xlsx" sap:VirtualizedContainerService.HintSize="484,82" sap2010:WorkflowViewState.IdRef="DeleteFileX_4" Path="[finfoCurrentAttachment.FullName]" />
+            </Sequence>
+          </Switch>
+        </ActivityAction>
+      </ui:ForEachFileX.Body>
+    </ui:ForEachFileX>
+  </Sequence>
+</Activity>

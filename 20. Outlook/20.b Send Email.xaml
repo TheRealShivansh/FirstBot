@@ -1,0 +1,206 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Send_Email" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="idictAssets" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="idictReservationCounter" Type="InArgument(scg:Dictionary(x:String, x:Int32))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1333.7142857142858,1525.142857142857</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Send_Email_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Sends email regarding the booking confirmation, cancellation and waitlisted done in this run to client along with the available rooms on particular dates." DisplayName="20.b Send Email" sap:VirtualizedContainerService.HintSize="546.2857142857143,1460" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:WorkbookApplication" Name="wrkappPropertyManagementApplication" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtCharlemont" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtSandyRoad" />
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="ienumCharlemontColumnNames" />
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="ienumSandyRoadColumnNames" />
+      <Variable x:TypeArguments="x:String" Name="strSandyRoadRoomAvailabilty" />
+      <Variable x:TypeArguments="x:String" Name="strCharlemontRoomAvailabilty" />
+      <Variable x:TypeArguments="x:String" Name="strClientMailBody" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope - Property Management Application" sap:VirtualizedContainerService.HintSize="484.57142857142856,480.57142857142856" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[wrkappPropertyManagementApplication]" WorkbookPath="[idictAssets(&quot;strProjectWorkingDirectory&quot;).ToString + &quot;\Output\Property Management Application.xlsx&quot;]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Read Hotel Sheets" sap:VirtualizedContainerService.HintSize="450.2857142857143,370.2857142857143" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[dtCharlemont]" DisplayName="Read Range - Charlemont Sheet" sap:VirtualizedContainerService.HintSize="388.57142857142856,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[idictAssets(&quot;strHotelCharlemontSheetName&quot;).ToString]">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[dtSandyRoad]" DisplayName="Read Range - Sandy Road Galway Sheet" sap:VirtualizedContainerService.HintSize="388.57142857142856,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="[idictAssets(&quot;strHotelSandyRoadGalwaySheetName&quot;).ToString]">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+            <ui:ExcelCloseWorkbook DisplayName="Close Workbook - Property Management Application" sap:VirtualizedContainerService.HintSize="388.57142857142856,60" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[wrkappPropertyManagementApplication]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <Assign DisplayName="Assign - ienumCharlemontColumnNames" sap:VirtualizedContainerService.HintSize="484.57142857142856,85.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[ienumCharlemontColumnNames]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[From dc In dtCharlemont.Columns.Cast(Of DataColumn) Select dc.ColumnName]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - ienumSandyRoadColumnNames" sap:VirtualizedContainerService.HintSize="484.57142857142856,85.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[ienumSandyRoadColumnNames]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[From dc In dtSandyRoad.Columns.Cast(Of DataColumn) Select dc.ColumnName]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - Charlemont Room Availabilty Row" sap:VirtualizedContainerService.HintSize="484.57142857142856,85.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strCharlemontRoomAvailabilty]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["&lt;tr&gt;&lt;td&gt;" + dtCharlemont(dtCharlemont.RowCount - 1)(1).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtCharlemont(dtCharlemont.RowCount - 1)(2).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtCharlemont(dtCharlemont.RowCount - 1)(3).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtCharlemont(dtCharlemont.RowCount - 1)(4).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtCharlemont(dtCharlemont.RowCount - 1)(5).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtCharlemont(dtCharlemont.RowCount - 1)(6).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtCharlemont(dtCharlemont.RowCount - 1)(7).ToString + "&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - Sandy Road Room Availabilty Row" sap:VirtualizedContainerService.HintSize="484.57142857142856,85.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strSandyRoadRoomAvailabilty]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["&lt;tr&gt;&lt;td&gt;" + dtSandyRoad(dtSandyRoad.RowCount - 1)(1).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtSandyRoad(dtSandyRoad.RowCount - 1)(2).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtSandyRoad(dtSandyRoad.RowCount - 1)(3).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtSandyRoad(dtSandyRoad.RowCount - 1)(4).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtSandyRoad(dtSandyRoad.RowCount - 1)(5).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtSandyRoad(dtSandyRoad.RowCount - 1)(6).ToString + "&lt;br&gt;&lt;/td&gt;&lt;td&gt;" + dtSandyRoad(dtSandyRoad.RowCount - 1)(7).ToString + "&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - strClientMailBody" sap:VirtualizedContainerService.HintSize="484.57142857142856,85.14285714285714" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strClientMailBody]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[idictAssets("strClientMailTemplate").ToString.Replace("Receiver_Name", idictAssets("strRecipientsName").ToString).Replace("Hotel_Charlemont_Booking_Count", idictReservationCounter("intCharlemontBookingCount").ToString).Replace("Hotel_Charlemont_Cancellation_Count", idictReservationCounter("intCharlemontCancellationCount").ToString).Replace("Hotel_Charlemont_Waitlisted_Count", idictReservationCounter("intCharlemontWaitlistedCount").ToString).Replace("H1_Day_1", ienumCharlemontColumnNames(1)).Replace("H1_Day_2", ienumCharlemontColumnNames(2)).Replace("H1_Day_3", ienumCharlemontColumnNames(3)).Replace("H1_Day_4", ienumCharlemontColumnNames(4)).Replace("H1_Day_5", ienumCharlemontColumnNames(5)).Replace("H1_Day_6", ienumCharlemontColumnNames(6)).Replace("H1_Day_7", ienumCharlemontColumnNames(7)).Replace("Hotel_Charlemont_Availabilty_Table", strCharlemontRoomAvailabilty).Replace("Hotel_Sandy_Road_Galway_Booking_Count", idictReservationCounter("intSandyRoadBookingCount").ToString).Replace("Hotel_Sandy_Road_Galway_Cancellation_Count", idictReservationCounter("intSandyRoadCancellationCount").ToString).Replace("Hotel_Sandy_Road_Galway_Waitlisted_Count", idictReservationCounter("intSandyRoadWaitlistedCount").ToString).Replace("H2_Day_1", ienumSandyRoadColumnNames(1)).Replace("H2_Day_2", ienumSandyRoadColumnNames(2)).Replace("H2_Day_3", ienumSandyRoadColumnNames(3)).Replace("H2_Day_4", ienumSandyRoadColumnNames(4)).Replace("H2_Day_5", ienumSandyRoadColumnNames(5)).Replace("H2_Day_6", ienumSandyRoadColumnNames(6)).Replace("H2_Day_7", ienumSandyRoadColumnNames(7)).Replace("Hotel_Sandy_Road_Galway_Availabilty_Table", strSandyRoadRoomAvailabilty).Replace("Your_Name", idictAssets("strSendersName").ToString)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="[idictAssets(&quot;strSendersMail&quot;).ToString]" Body="[strClientMailBody]" DisplayName="Send Outlook Mail Message - Rooms Availability" sap:VirtualizedContainerService.HintSize="484.57142857142856,157.14285714285714" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[idictAssets(&quot;strClientMailSubject&quot;).ToString]" To="[idictAssets(&quot;strRecipientsMail&quot;).ToString]">
+      <ui:SendOutlookMail.Files>
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+      </ui:SendOutlookMail.Files>
+    </ui:SendOutlookMail>
+  </Sequence>
+</Activity>
